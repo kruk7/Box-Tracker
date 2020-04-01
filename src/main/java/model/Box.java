@@ -9,6 +9,7 @@ public class Box
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "box_id")
     private Long id;
 
     @Column(name = "serial", nullable = false, unique = true)
@@ -17,10 +18,11 @@ public class Box
     @Column(name = "name")
     private String name;
 
-    @Column(name = "user")
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(name = "coordinates")
+    @OneToMany(mappedBy="box")
     private List<Coordinates> coordinates;
 
     //----- Getters and Stetters -----

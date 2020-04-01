@@ -9,9 +9,11 @@ public class Coordinates
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "coord_id")
     private Long id;
 
-    @Column(name = "box", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "box_id")
     private Box box;
 
     @Column(name = "latitude", nullable = false)
@@ -23,7 +25,7 @@ public class Coordinates
     @Column(name = "time_stamp", nullable = false)
     private Timestamp timestamp;
 
-    //----- Getters and Stetters -----
+
     public Long getId()
     { return id; }
 

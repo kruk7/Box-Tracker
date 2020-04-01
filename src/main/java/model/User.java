@@ -9,9 +9,11 @@ public class User
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Long id;
     private String login;
     private String password;
+    @OneToMany(mappedBy = "user")
     private List<Box> boxes;
 
     //----- Getters and Stetters -----
