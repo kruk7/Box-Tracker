@@ -23,7 +23,7 @@ public class Coordinates
     private double longitude;
 
     @Column(name = "time_stamp", nullable = false)
-    private Timestamp timestamp;
+    private java.sql.Timestamp timestamp;
 
     public Long getId()
     { return id; }

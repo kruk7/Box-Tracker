@@ -97,5 +97,4 @@ public class DaoImplement implements DaoInterface
         em.close();
         return coordinatesFromDB;
     }
-
 }
