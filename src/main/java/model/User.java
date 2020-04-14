@@ -16,7 +16,6 @@ public class User
     @OneToMany(mappedBy = "user")
     private List<Box> boxes;
 
-    //----- Getters and Stetters -----
     public Long getId()
     { return id; }
 
@@ -37,4 +36,10 @@ public class User
 
     public void setBoxes(List<Box> boxes)
     { this.boxes = boxes; }
+
+    @Override
+    public String toString()
+    {
+        return "User{" + "id=" + id + ", login='" + login + '\'' + ", password='" + password + '\'' + ", boxes=" + boxes + '}';
+    }
 }

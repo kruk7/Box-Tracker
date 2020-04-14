@@ -25,7 +25,6 @@ public class Coordinates
     @Column(name = "time_stamp", nullable = false)
     private Timestamp timestamp;
 
-
     public Long getId()
     { return id; }
 
@@ -52,4 +51,10 @@ public class Coordinates
 
     public void setTimestamp(Timestamp timestamp)
     { this.timestamp = timestamp; }
+
+    @Override
+    public String toString()
+    {
+        return "Coordinates{" + "id=" + id + ", box=" + box + ", latitude=" + latitude + ", longitude=" + longitude + ", timestamp=" + timestamp + '}';
+    }
 }

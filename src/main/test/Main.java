@@ -8,7 +8,6 @@ public class Main
     @PersistenceUnit(name = "DB-BoxTracker-pers-unit")
     static EntityManagerFactory emf;
 
-
     public static void main(String[] args)
     {
         EntityManager em = emf.createEntityManager();

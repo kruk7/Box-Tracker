@@ -25,7 +25,6 @@ public class Box
     @OneToMany(mappedBy="box")
     private List<Coordinates> coordinates;
 
-    //----- Getters and Stetters -----
     public Long getId()
     { return id; }
 
@@ -52,4 +51,10 @@ public class Box
 
     public void setCoordinates(List<Coordinates> coordinates)
     { this.coordinates = coordinates; }
+
+    @Override
+    public String toString()
+    {
+        return "Box{" + "id=" + id + ", serial=" + serial + ", name='" + name + '\'' + ", user=" + user + ", coordinates=" + coordinates + '}';
+    }
 }
