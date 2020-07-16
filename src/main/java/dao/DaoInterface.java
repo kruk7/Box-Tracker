@@ -17,4 +17,7 @@ public interface DaoInterface
     public Box getBox(Long BoxId);
     public Coordinates getCoordinates(Long CoordinatesId);
 
+    public boolean ifUserExists(String login);
+    public User getUserByLogin(String login);
+
 }

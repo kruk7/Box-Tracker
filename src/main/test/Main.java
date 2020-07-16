@@ -10,12 +10,13 @@ public class Main
 
     public static void main(String[] args)
     {
-        EntityManager em = emf.createEntityManager();
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
+//        EntityManager em = emf.createEntityManager();
+//        EntityTransaction tx = em.getTransaction();
+//        tx.begin();
+//
+//        tx.commit();
+//        em.close();
 
-        tx.commit();
-        em.close();
 
     }
 }

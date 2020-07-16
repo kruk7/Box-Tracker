@@ -4,15 +4,14 @@ import model.Box;
 import model.Coordinates;
 import model.User;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.PersistenceUnit;
+import javax.persistence.*;
+import java.util.List;
 
 public class DaoImplement implements DaoInterface
 {
     @PersistenceUnit(name = "DB-BoxTracker-pers-unit")
     static EntityManagerFactory emf;
+    private EntityManager em;
 
     @Override
     public void addUser(User user)
@@ -96,5 +95,30 @@ public class DaoImplement implements DaoInterface
         Coordinates coordinatesFromDB = em.find(Coordinates.class, CoordinatesId);
         em.close();
         return coordinatesFromDB;
+    }
+
+    @Override
+    public User getUserByLogin(String login)
+    {
+        List<User> results = null;
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<User> query = em.createQuery("SELECT u FROM User u WHERE u.login = :login", User.class);
+        query.setParameter("login", login);
+        query.setMaxResults(1);
+        results = query.getResultList();
+        if (results.isEmpty()) return null;
+        else if (results.size() != 0)
+            return results.get(0);
+        throw new NonUniqueResultException();
+    }
+
+    @Override
+    public boolean ifUserExists(String login)
+    {
+        User user = getUserByLogin(login);
+        if (user == null)
+            return false;
+        else
+            return true;
     }
 }
